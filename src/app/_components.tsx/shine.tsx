@@ -2,7 +2,7 @@ import React from "react";
 
 const Shine = ({
   children,
-  puffyness = "1",
+  puffyness = 1,
   surfaceScale = 2,
   specularConstant = 1.25,
   specularExponent = 300,
@@ -10,7 +10,7 @@ const Shine = ({
   ...otherProps
 }: {
   children: React.ReactNode;
-  puffyness?: "0.5" | "0.75" | "1" | "1.25" | "1.5" | "1.75" | "2";
+  puffyness?: number;
   surfaceScale?: number;
   specularConstant?: number;
   specularExponent?: number;

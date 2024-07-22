@@ -9,6 +9,7 @@ interface ShineControlsState {
   specularConstant: number;
   specularExponent: number;
   lightingColor: string;
+  puffyness: number;
 }
 
 const ShineControls: React.FC<ShineControlsProps> = ({ onChange }) => {
@@ -17,6 +18,7 @@ const ShineControls: React.FC<ShineControlsProps> = ({ onChange }) => {
     surfaceScale: 2,
     specularConstant: 1.25,
     specularExponent: 300,
+    puffyness: 1,
     lightingColor: "#222222",
   });
 
@@ -29,7 +31,7 @@ const ShineControls: React.FC<ShineControlsProps> = ({ onChange }) => {
   };
 
   return (
-    <div className="fixed top-4 right-4 bg-white shadow-lg rounded-md z-50 transition-all duration-300 ease-in-out" style={{ width: isCollapsed ? "auto" : "10rem" }}>
+    <div className="fixed top-4 right-4 bg-white shadow-lg rounded-md z-50 transition-all duration-300 ease-in-out" style={{ width: isCollapsed ? "auto" : "16rem" }}>
       <div className="flex justify-between items-center p-2 cursor-pointer" onClick={() => setIsCollapsed(!isCollapsed)}>
         <h3 className="text-sm font-semibold">Shine Controls</h3>
         <button className="text-gray-500 hover:text-gray-700">
@@ -47,8 +49,8 @@ const ShineControls: React.FC<ShineControlsProps> = ({ onChange }) => {
                 type={key === "lightingColor" ? "color" : "range"}
                 id={key}
                 min={key === "lightingColor" ? undefined : "0"}
-                max={key === "surfaceScale" ? "10" : key === "specularConstant" ? "5" : "1000"}
-                step={key === "surfaceScale" ? "0.1" : key === "specularConstant" ? "0.05" : "10"}
+                max={key === "surfaceScale" ? "10" : key === "specularConstant" ? "5" : key === "puffyness" ? "2" : "1000"}
+                step={key === "surfaceScale" || key === "puffyness" ? "0.1" : key === "specularConstant" ? "0.05" : "10"}
                 value={value}
                 onChange={(e) =>
                   handleChange(

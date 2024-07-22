@@ -11,6 +11,7 @@ export default function Home() {
     specularConstant: 1.25,
     specularExponent: 300,
     lightingColor: "#222222",
+    puffyness: 1,
   });
 
   return (
